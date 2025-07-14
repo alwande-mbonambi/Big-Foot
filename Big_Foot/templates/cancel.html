@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Canceled</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/client_side.css') }}">
+     <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; }
+        .message-box { padding: 40px; background: #fff; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .message-box h1 { color: #e74c3c; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="message-box">
+        <h1>Order Canceled</h1>
+        <p>You have canceled the checkout process. Your cart has been saved.</p>
+        <br>
+        <a href="{{ url_for('client_side') }}" class="checkout-button">Return to Store</a>
+    </div>
+</body>
+</html>
