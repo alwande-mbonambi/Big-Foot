@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Foot Admin - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_side.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://static.vecteezy.com/system/resources/previews/009/107/939/original/bigfoot-logo-free-vector.jpg" alt="Big Foot Logo">
+                <h1>Big Foot Admin</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="admin-nav-btn active" data-section="dashboard-section"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#" class="admin-nav-btn" data-section="products-section"><i class="fas fa-boxes"></i> Products</a></li>
+                    <li><a href="#" class="admin-nav-btn" data-section="orders-section"><i class="fas fa-clipboard-list"></i> Orders</a></li>
+                    <li><a href="#" class="admin-nav-btn" data-section="users-section"><i class="fas fa-users"></i> Users</a></li>
+                    <li><a href="#" id="admin-logout-button" title="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="dashboard-section" class="admin-section">
+            <h2>Admin Dashboard</h2>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Total Products</h3>
+                    <p id="total-products">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <p id="total-orders">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Registered Users</h3>
+                    <p id="registered-users">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="products-section" class="admin-section" style="display: none;">
+            <h2>Product Management</h2>
+            <button class="add-button" id="add-product-btn">Add New Product</button>
+            <div id="product-list-container" class="data-list-container">
+                </div>
+            <p id="no-products-message" style="display: none;">No products added yet.</p>
+
+            <div id="product-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" id="product-close-button">&times;</span>
+                    <h3 id="modal-title">Add/Edit Product</h3>
+                    <form id="product-form">
+                        <input type="hidden" id="product-id"> <div class="form-group">
+                            <label for="product-name">Product Name:</label>
+                            <input type="text" id="product-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-price">Price (R):</label>
+                            <input type="number" id="product-price" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-image">Image URL:</label>
+                            <input type="url" id="product-image" required>
+                        </div>
+                        <button type="submit" class="submit-button">Save Product</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="orders-section" class="admin-section" style="display: none;">
+            <h2>Order Management</h2>
+            <div id="order-list-container" class="data-list-container">
+                </div>
+            <p id="no-admin-orders-message" style="display: none;">No orders to display.</p>
+        </section>
+
+        <section id="users-section" class="admin-section" style="display: none;">
+            <h2>User Management</h2>
+            <div id="user-list-container" class="data-list-container">
+                </div>
+            <p id="no-users-message" style="display: none;">No users registered yet.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Big Foot Admin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/admin_side.js') }}"></script>
+</body>
+</html>
